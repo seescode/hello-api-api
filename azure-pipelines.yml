@@ -26,9 +26,9 @@ stages:
       #   inputs:
       #     mavenServiceConnections: 'anypoint-exchange-v3'
       - task: Maven@3
-        inputs:
+        inputs: 
           mavenPomFile: 'pom.xml'
-          mavenOptions: '-Xmx3072m'
+          mavenOptions: '-Xmx3072m -s $(Agent.TempDirectory)/settings.xml'
           javaHomeOption: 'JDKVersion'
           jdkVersionOption: '1.11'
           jdkArchitectureOption: 'x64'
