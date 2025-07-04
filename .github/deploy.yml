@@ -1,0 +1,31 @@
+name: MuleSoft CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Set up Maven 3.9.9
+        uses: s4u/setup-maven-action@v1.11.0
+        with:
+          maven-version: '3.9.9'
+
+      - name: Deploy to Anypoint Exchange
+        run: mvn clean deploy -DmuleDeploy -DskipTests
+        env:
+          anypoint.username: ${{ secrets.ANYPOINT_USERNAME }}
+          anypoint.password: ${{ secrets.ANYPOINT_PASSWORD }}
