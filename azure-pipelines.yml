@@ -28,7 +28,8 @@ stages:
       - task: Maven@3
         inputs: 
           mavenPomFile: 'pom.xml'
-          mavenOptions: '-Xmx3072m -s $(Agent.TempDirectory)/settings.xml'
+          mavenOptions: '-Xmx3072m'
+          options: '-s $(Agent.TempDirectory)/settings.xml'
           javaHomeOption: 'JDKVersion'
           jdkVersionOption: '1.11'
           jdkArchitectureOption: 'x64'
