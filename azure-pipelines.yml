@@ -17,11 +17,14 @@ stages:
   jobs:
   - job: Bubj
     steps:
-      - task: DownloadSecureFile@1
-        displayName: 'Download secure files'
-        name: settings
+      # - task: DownloadSecureFile@1
+      #   displayName: 'Download secure files'
+      #   name: settings
+      #   inputs:
+      #     secureFile: 'settings.xml'
+      - task: MavenAuthenticate@0
         inputs:
-          secureFile: 'settings.xml'
+          mavenServiceConnections: 'anypoint-exchange-v3'
       - task: Maven@3
         inputs:
           mavenPomFile: 'pom.xml'
