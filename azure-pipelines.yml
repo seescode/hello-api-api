@@ -11,8 +11,6 @@ pool:
 
 steps:
 - task: Maven@3
-  variables:
-  - group: Anypoint Platform Sandbox Variables
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
