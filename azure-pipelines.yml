@@ -17,6 +17,11 @@ stages:
   jobs:
   - job: Bubj
     steps:
+      - task: DownloadSecureFile@1
+        displayName: 'Download secure files'
+        name: settings
+        inputs:
+          secureFile: 'settings.xml'
       - task: Maven@3
         inputs:
           mavenPomFile: 'pom.xml'
