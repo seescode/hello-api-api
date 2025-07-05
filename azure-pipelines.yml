@@ -60,10 +60,12 @@ stages:
             -s $(Agent.TempDirectory)/settings.xml 
             -DmuleDeploy 
             -DskipMunitTests 
-            -Denvironment=sandbox 
+            -Denvironment=$(environment)
             -DbusinessGroupId=a9641300-dc38-4f3f-a0be-162490c33ec5 
             -Dreplica=1 
             -DvCores=0.1
+            -Dsecret=$(secret)
+            -Drandom=$(random)
           javaHomeOption: 'JDKVersion'
           jdkVersionOption: '1.11'
           jdkArchitectureOption: 'x64'
