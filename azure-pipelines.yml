@@ -36,3 +36,37 @@ stages:
           publishJUnitResults: true
           testResultsFiles: '**/surefire-reports/TEST-*.xml'
           goals: 'clean deploy'
+          
+- stage: deploy_cloudhub
+  dependsOn: publish_exchange
+  variables:
+  - group: Anypoint Platform Sandbox Variables
+  jobs:
+  - job: DeployToCloudHub
+    steps:
+      - task: DownloadSecureFile@1
+        displayName: 'Download secure files'
+        name: settings
+        inputs:
+          secureFile: 'settings.xml'
+      # - task: MavenAuthenticate@0
+      #   inputs:
+      #     mavenServiceConnections: 'anypoint-exchange-v3'
+      - task: Maven@3
+        inputs: 
+          mavenPomFile: 'pom.xml'
+          mavenOptions: '-Xmx3072m'
+          options: >-
+            -s $(Agent.TempDirectory)/settings.xml 
+            -DmuleDeploy 
+            -DskipMunitTests 
+            -Denvironment=sandbox 
+            -DbusinessGroupId=a9641300-dc38-4f3f-a0be-162490c33ec5 
+            -Dreplica=1 
+            -DvCores=0.1
+          javaHomeOption: 'JDKVersion'
+          jdkVersionOption: '1.11'
+          jdkArchitectureOption: 'x64'
+          publishJUnitResults: true
+          testResultsFiles: '**/surefire-reports/TEST-*.xml'
+          goals: 'clean deploy'
