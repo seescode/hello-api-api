@@ -6,7 +6,7 @@
 
 	<groupId>a9641300-dc38-4f3f-a0be-162490c33ec5</groupId>
 	<artifactId>hello-api-api</artifactId>
-	<version>1.2.0</version>
+	<version>1.2.1</version>
 	<packaging>mule-application</packaging>
 
 	<name>hello-api-api</name>
@@ -37,7 +37,7 @@
 					<cloudhub2Deployment>
 						<uri>https://anypoint.mulesoft.com</uri>
 						<provider>MC</provider>
-						<environment>Sandbox</environment>
+						<environment>${environment}</environment>
 						<target>Cloudhub-US-East-2</target>
 						<muleVersion>4.9.0</muleVersion>
 						<javaVersion>17</javaVersion>
@@ -51,6 +51,12 @@
 							<forwardSslSession>false</forwardSslSession>
 							<generateDefaultPublicUrl>true</generateDefaultPublicUrl>
 						</deploymentSettings>
+						<properties>
+						  <random>${random}</random>						  
+						</properties>
+						<secureProperties>
+						  <secret>${secret}</secret>
+						</secureProperties>
 					</cloudhub2Deployment>
 				</configuration>
 			</plugin>
