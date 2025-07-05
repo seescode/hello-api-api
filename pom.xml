@@ -37,9 +37,11 @@
 					<cloudhub2Deployment>
 						<uri>https://anypoint.mulesoft.com</uri>
 						<provider>MC</provider>
-						<environment>dev</environment>
+						<environment>Sandbox</environment>
 						<target>Cloudhub-US-East-2</target>
-						<muleVersion>4.4.0</muleVersion>
+						<muleVersion>4.9.0</muleVersion>
+						<javaVersion>17</javaVersion>
+						<releaseChannel>LTS</releaseChannel>
 						<server>anypoint-exchange-v3</server>
 						<applicationName>${project.name}</applicationName>
 						<replicas>1</replicas>
