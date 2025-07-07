@@ -6,10 +6,16 @@
 
 	<groupId>a9641300-dc38-4f3f-a0be-162490c33ec5</groupId>
 	<artifactId>hello-api-api</artifactId>
-	<version>1.2.3</version>
+	<version>1.2.5</version>
 	<packaging>mule-application</packaging>
 
 	<name>hello-api-api</name>
+	
+	<parent>
+		<groupId>a9641300-dc38-4f3f-a0be-162490c33ec5</groupId>
+		<artifactId>parent-pom</artifactId>
+		<version>1.0.1</version>	
+	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -106,25 +112,6 @@
 		</repository>
 	</repositories>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>mulesoft-releases</id>
-			<name>MuleSoft Releases Repository</name>
-			<layout>default</layout>
-			<url>https://repository.mulesoft.org/releases/</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
 
-	<distributionManagement>
-		<repository>
-			<id>anypoint-exchange-v3</id>
-			<name>Anypoint Exchange V3</name>
-			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/a9641300-dc38-4f3f-a0be-162490c33ec5/maven</url>
-			<layout>default</layout>
-		</repository>
-	</distributionManagement>
 </project>
 
